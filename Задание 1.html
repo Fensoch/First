@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/pluton.css" />
+        
+		<title>Задание 1</title>
+
+	</head>
+
+	<body>
+		<button class="button1">Empty window</button>
+		<button class="button2">Text window</button>
+
+		<script type="text/javascript">
+			const button1 = document.querySelector('.button1')
+			const button2 = document.querySelector('.button2')
+
+			button1.addEventListener('click', () => {
+			const wind = window.open("", "", "width=350, height=350");
+			wind.document.title = `New window`;
+
+			let btn = wind.document.createElement('button');
+			let textInBtn = wind.document.createTextNode('Close');
+			btn.appendChild(textInBtn);
+			wind.document.querySelector('body').appendChild(btn)
+			btn.addEventListener('click', ()=>{
+			wind.close();
+			})
+			})
+
+			button2.addEventListener('click', () =>{
+			const Window = window.open('','', 'width=550', 'height=550');
+
+			let btn = Window.document.createElement('button');
+			let btnCapture = Window.document.createTextNode('Close');
+			Window.document.querySelector('body').innerHTML +=`
+			<div>
+			English texts for beginners to practice reading and comprehension online and for free. Practicing your comprehension of written English will both improve your vocabulary and understanding of grammar and word order. The texts below are designed to help you develop while giving you an instant evaluation of your progress.
+			</div>`
+			btn.appendChild(btnCapture);
+			Window.document.querySelector('body').appendChild(btn);
+			btn.addEventListener('click', ()=>{
+			Window.close();
+			})
+			})
+		</script>
+
+	</body>
+
+</html>
